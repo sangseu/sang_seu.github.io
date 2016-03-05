@@ -1,6 +1,4 @@
 # sangseu.github.io
-sangseu.github.io
-====================
 
 ## Hello world!
 

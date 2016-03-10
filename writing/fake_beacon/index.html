@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/mystyle.css" media="screen">
+
+    <title>sangseu.github.io/writing</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>sangseu.github.io/writing</h1>
+        
+        <p class="right-top"> <a href="http://sangseu.github.io/writing/" >Writing</a> <a> | </a> <a href="http://sangseu.github.io/interesting/">Interesting</a> <a> | </a> <a href="http://sangseu.github.io/">Home</a> </p>
+        
+        <?php
+          $myfilename = "http://sangseu.github.io/writing/fake_beacon/fake_beacon.txt";
+          if(file_exists($myfilename)){
+          echo file_get_contents($myfilename);
+            }
+        ?>
+
+      </div>
+    </header>
+  <body>
+<html>

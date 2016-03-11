@@ -1,3 +1,5 @@
+<link href="stylesheets/txtstyle.css" rel="stylesheet" type="text/css" />
+<pre>
 Fake Beacon using nRF24L01
 ==========================
 
@@ -410,3 +412,4 @@ http://www.argenox.com/bluetooth-low-energy-ble-v4-0-development/library/a-ble-a
 https://www.bluetooth.org/en-us/specification/assigned-numbers/generic-access-profile
 http://makernews.info/featured/2015/09/BLE-nrf24l01-arduino.html
 
+</pre>

@@ -1,0 +1,36 @@
+
+
+<pre>
+
+Fix error: "attributeError: 'module' object has no attribute 'packaging'"
+=========================================================================
+
+Lỗi xuất hiện khi cài đặt lại "pip" hoặc cài đặt một số gói liên quan đến python, vis dụ như trường hợp của tôi là gói "python-kivy".
+
+Sau khi tham khảo nhiều cách làm, tôi thấy cách làm của tác giả kynan (http://stackoverflow.com/users/396967/kynan) có thể fix được lỗi trên. Cách làm như sau:
+
+[1] Tìm kiếm file
+	Trên cửa sổ Terminal nhập vào lệnh:
+
+	  sudo python
+
+	enter
+
+	  import pkg_resourses
+
+	enter
+
+	  pkg_resources.__file__
+
+	Lệnh trả lại kết quả
+
+	  '/usr/lib/python2.7/dist-packages/pkg_resources.pyc'
+
+[2] Xóa file
+	Xóa file "pkg_resources.pyc" và file tương tự "pkg_resources.py*"
+
+	  sudo rm /usr/lib/python2.7/dist-packages/pkg_resources.py*
+
+Đã fix xong lỗi.
+
+</pre>

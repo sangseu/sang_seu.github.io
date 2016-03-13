@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/mystyle.css" media="screen">
+
+    <title>Fix Python "SyntaxError: Non-ASCII character '\xe2' in file"</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>sangseu.github.io</h1>
+        
+        <p class="right-top"> <a href="http://sangseu.github.io/writing/" >Writing</a> <a> | </a> <a href="http://sangseu.github.io/interesting/">Interesting</a> <a> | </a> <a href="http://sangseu.github.io/">Home</a> </p>
+        
+        
+        
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+<!-- start-->
+
+<h3>
+<a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+Fix Python "SyntaxError: Non-ASCII character '\xe2' in file"
+</h3>
+
+<pre>
+
+with open("main.py") as fp:
+    for i, line in enumerate(fp):
+        if "\xe2" in line:
+            print i, repr(line)
+
+</pre>
+
+<!-- stop -->
+      </section>
+    </div>
+
+
+<footer class="footer">
+    <div class="container">
+      
+        <div class="contact">
+          <p>
+            By sangseu</a> | <a href="https://www.facebook.com/sangseu">@sangseu</a><br />
+          </p>
+        </div>
+
+    </div>
+</footer>
+
+  </body>
+</html>

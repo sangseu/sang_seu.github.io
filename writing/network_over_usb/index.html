@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="http://sangseu.github.io/stylesheets/mystyle.css" media="screen">
+
+    <title>Fix Python "SyntaxError: Non-ASCII character '\xe2' in file"</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>sangseu.github.io</h1>
+        
+        <p class="right-top"> <a href="http://sangseu.github.io/writing/" >Writing</a> <a> | </a> <a href="http://sangseu.github.io/interesting/">Interesting</a> <a> | </a> <a href="http://sangseu.github.io/">Home</a> </p>
+        
+        
+        
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+<!-- start-->
+
+
+<h1 align="center"><span style="font-family: Courier New,monospace;"><b>Network over USB</b></span></h1>
+<span style="font-family: Courier New,monospace;">Cầm mạch Beagleboard của thầy về để đó hơn năm trời hôm nay có việc cần dùng đến nên tôi mới lôi ra để tìm hiểu.</span>
+
+<span style="font-family: Courier New,monospace;">Blog này tôi chia sẻ cách chia sẻ mạng từ laptop cho máy tính nhúng qua cổng USB. Qua đó, ta có thể làm việc với máy tính nhúng một cách gọn nhẹ nhất.</span>
+
+<span style="font-family: Courier New,monospace;">Bài viết chia sẻ mạng cho máy tính nhúng qua cổng LAN tôi và bạn của tôi đã chia sẻ ở đây:</span>
+
+<span style="font-family: Courier New,monospace;">+ <a href="http://sanphandinh.github.io/2016/01/09/chia-se-ket-noi-internet-tu-may-tinh-cho-raspberry-pi/" target="_blank">http://sanphandinh.github.io/2016/01/09/chia-se-ket-noi-internet-tu-may-tinh-cho-raspberry-pi/</a></span>
+
+<span style="font-family: Courier New,monospace;">+ <a href="https://xivila.com/profile/sangseu@gmail.com/blog/171/share-mang-tu-laptop-cho-pi-window/" target="_blank">https://xivila.com/profile/sangseu@gmail.com/blog/171/share-mang-tu-laptop-cho-pi-window/</a></span>
+
+<img src="https://c2.staticflickr.com/2/1664/26283946490_6ceb243ab0_o.jpg" width="100%" >
+
+<h2><span style="font-family: Courier New,monospace;">Mô hình</span></h2>
+<span style="font-family: Courier New,monospace;"><span style="font-size: small;">+--------------+  cable USB  +--------------+</span></span>
+
+<span style="font-family: Courier New,monospace;"><span style="font-size: small;">| board nhúng  |&lt;-----------&gt;|    laptop    |</span></span>
+
+<span style="font-family: Courier New,monospace;"><span style="font-size: small;">+--------------+     net     +--------------+</span></span>
+<h2><span style="font-family: Courier New,monospace;">Chuẩn bị</span></h2>
+<span style="font-family: Courier New,monospace;">- Hệ điều hành cho beagleboard bản mới nhất, tôi sử dụng Debian</span>
+
+<span style="font-family: Courier New,monospace;">- Cable kết nối USB-RS232</span>
+
+<span style="font-family: Courier New,monospace;">- Cable mini USB</span>
+
+<span style="font-family: Courier New,monospace;">- Nguồn 5V-1A, cổng cắm 3.5</span>
+
+<span style="font-family: Courier New,monospace;">- Phần mềm puTTY SSH Client</span>
+
+<span style="font-family: Courier New,monospace;">Quá trình thực hiện trên laptop chạy Linux Mint.</span>
+<h2><span style="font-family: Courier New,monospace;">Tiến hành</span></h2>
+<span style="font-family: Courier New,monospace;">- Kết nối cổng RS232 của beagleboard với cổng USB của laptop</span>
+
+<span style="font-family: Courier New,monospace;"><span style="font-size: small;">+--------------+  cable USB  +--------------+</span></span>
+
+<span style="font-family: Courier New,monospace;"><span style="font-size: small;">|  board nhúng |&lt;-----------&gt;|    laptop    |</span></span>
+
+<span style="font-family: Courier New,monospace;"><span style="font-size: small;">+--------------+&lt;-----------&gt;+--------------+</span></span>
+
+<span style="font-family: Courier New,monospace;"><span style="font-size: small;">                  RS232-USB</span></span>
+
+<span style="font-family: Courier New,monospace;">- Dùng puTTY kết nối tới Serial <b>/dev/ttyUSB0</b>, baudrate <b>115200</b></span>
+
+<span style="font-family: Courier New,monospace;">- Boot beagleboard từ thẻ SD</span>
+<img src="https://c2.staticflickr.com/2/1457/25953382854_c1b91da849_o.png" width="100%" >
+
+<span style="font-family: Courier New,monospace;">Tiến hành đăng nhập bằng usr/pwd trên giao diện console puTTY</span>
+
+<img src="https://c2.staticflickr.com/2/1576/26558367785_bbca9cc86b_o.png" width="100%" >
+
+&nbsp;
+
+<span style="font-family: Courier New,monospace;">- Thực hiện Share mạng cho board nhúng tương tự bài viết của bạn tôi</span>
+
+<span style="font-family: Courier New,monospace;">Ở đây tôi đặt tên mạng là Sharing to Pi</span>
+
+<img src="https://c2.staticflickr.com/2/1619/26285479040_77d14a7fae_o.png" width="100%" >
+
+<span style="font-family: Courier New,monospace;">- Cho phép Mint share mạng ra cổng USB</span>
+
+<span style="font-family: Courier New,monospace;">Trên của sổ Terminal Mint, chạy lệnh:</span>
+<p style="padding-left: 30px;"><span style="font-family: Courier New,monospace;"><b> sudo nano /etc/network/interfaces</b></span></p>
+<span style="font-family: Courier New,monospace;">Thêm vào đoạn cấu hình sau:</span>
+<p style="padding-left: 30px;"><span style="font-family: Courier New,monospace;"> <b>#</b><b>auto usb0</b></span></p>
+<p style="padding-left: 30px;"><span style="font-family: Courier New,monospace;"><b> allow-hotplug usb0</b></span></p>
+<p style="padding-left: 30px;"><span style="font-family: Courier New,monospace;"><b> iface usb0 inet dhcp</b></span></p>
+<span style="font-family: Courier New,monospace;">Save file. Việc này cho phép Mint chia sẻ network ra cổng “usb0”, giao thức cấp phát IP “dhcp” khi có host kết nối với cổng usb.</span>
+
+<span style="font-family: Courier New,monospace;">Lưu ý, có thể dùng lệnh “auto usb0” để tạo giao diện khi Mint boot. Tuy nhiên cần cấu hình các giao diện khác, nếu không Mint chỉ boot với giao diện “lo” và “usb0” mà không có “eth0” (ethernet), “wlan0” (wifi).</span>
+
+<span style="font-family: Courier New,monospace;">- Kết nối cổng USB OTG của beagleboard với cổng USB của laptop</span>
+
+<span style="font-family: Courier New,monospace;">Trên cửa sổ Terminal linux, chạy lệnh:</span>
+<p style="padding-left: 30px;"><span style="font-family: Courier New,monospace;"><b> ifconfig</b></span></p>
+<span style="font-family: Courier New,monospace;">Ta thấy có giao diện “usb0”, “inet add” là 10.42.0.1</span>
+
+<span style="font-family: Courier New,monospace;">Đây được xem là gateway cho mạng mà chúng ra share.</span>
+
+<img src="https://c2.staticflickr.com/2/1696/26466038342_0aef93e7e6_o.png" width="100%" >
+
+<span style="font-family: Courier New,monospace;">- Cho phép beagleboard kết nối mạng từ USB</span>
+
+<span style="font-family: Courier New,monospace;">Trên giao diện console puTTY, chạy lệnh:</span>
+<p style="padding-left: 30px;"><span style="font-family: Courier New,monospace;"><b> sudo nano /etc/network/interfaces</b></span></p>
+<span style="font-family: Courier New,monospace;">Thêm vào đoạn cấu hình sau:</span>
+<p style="padding-left: 30px;"><span style="font-family: Courier New,monospace;"><b> auto usb0</b></span></p>
+<p style="padding-left: 30px;"><span style="font-family: Courier New,monospace;"><b> iface usb0 inet static</b></span></p>
+<p style="padding-left: 60px;"><strong><span style="font-family: Courier New,monospace;"> address 10.42.0.2</span></strong></p>
+<p style="padding-left: 60px;"><strong><span style="font-family: Courier New,monospace;"> netmask 255.255.255.0</span></strong></p>
+<p style="padding-left: 60px;"><strong><span style="font-family: Courier New,monospace;"> gateway 10.42.0.1</span></strong></p>
+<span style="font-family: Courier New,monospace;">Save file. Việc này cho phép beagleboard kết nối mạng từ cổng “usb0”, “gateway” kết nối là “10.42.0.1”, địa chỉ IP tĩnh là “10.42.0.2” - cùng lớp với địa chỉ của gateway. Ở đây nên đặt IP tĩnh để khi reboot lại beagleboard, các thiết đặt vẫn giữ nguyên.</span>
+
+<img src="https://c2.staticflickr.com/2/1451/25955458373_e87b52b016_o.png" width="100%" >
+
+<span style="font-family: Courier New,monospace;">- Kiểm tra kết nối để chắc chắn beagleboard đã kết nối với mạng “Sharing to Pi” mà ta đã cấu hình trước đó.</span>
+
+<span style="font-family: Courier New,monospace;">Kiểm tra các giao diện mạng trên laptop và beagleboard</span>
+
+<img src="https://c2.staticflickr.com/2/1461/26466040832_fd5d2d32f8_o.png" width="100%" >
+
+<span style="font-family: Courier New,monospace;">Ta thấy gateway là “10.42.0.1”, IP của beagleboard trong mạng ta chia sẻ là “10.42.0.2”</span>
+
+<span style="font-family: Courier New,monospace;">- Tiến hành SSH để điều khiển beagleboard</span>
+<p style="padding-left: 30px;"><b> </b><span style="font-family: Courier New,monospace;"><b>ssh </b></span><a href="mailto:debian@10.42.0.2"><span style="font-family: Courier New,monospace;"><b>debian@10.42.0.2</b></span></a></p>
+<span style="font-family: Courier New,monospace;">- Kiểm tra <b>ping</b>, <b>traceroute</b></span>
+
+<img src="https://c2.staticflickr.com/2/1517/26466041842_19c7c12f56_b.jpg" width="100%" >
+
+<span style="font-family: Courier New,monospace;">Vậy là beagleboard đã được kết nối với Inernet. Sau đó, việc đầu tiên tôi làm là:</span>
+<p style="padding-left: 30px;"><span style="font-family: Courier New,monospace;"><b> sudo apt-get update</b></span></p>
+
+<pre><b></b><span style="font-family: Courier New,monospace;">
+
+
+<!-- stop -->
+      </section>
+    </div>
+
+
+<footer class="footer">
+    <div class="container">
+      
+        <div class="contact">
+          <p>
+            By sangseu</a> | <a href="https://www.facebook.com/sangseu">@sangseu</a><br />
+          </p>
+        </div>
+
+    </div>
+</footer>
+
+  </body>
+</html>

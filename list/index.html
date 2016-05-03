@@ -1,51 +1,22 @@
 <html>
-<body>
 
-<!-- user interface -->
+	<head>
+	<title>Reading from text files</title>
+	</head>
+	<body>
+	<%
+	Dim fso, f, filespec
 
-<input id="inputFileToRead" type="file" onchange="inputFileToRead_Changed(this);"></input>
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	filespec = Server.Mappath("/123.txt")
 
-<script type="text/javascript">
+	Set f = fso.OpenTextFile(filespec,1)
 
-// user interface events
+	' Read line from the text file and write the contents to the client
 
-function inputFileToRead_Changed(inputFileToRead)
-{
-	var pathOfFileToRead = inputFileToRead.files[0].name;
+	Response.write f.readline 
 
-	new FileHelper().readStringFromFileAtPath
-	(
-		pathOfFileToRead,
-		inputFileToRead_Changed_2
-	);
-}
-
-function inputFileToRead_Changed_2(contentsOfFileAsString)
-{
-	document.body.innerHTML = contentsOfFileAsString;
-}
-
-// classes
-
-function FileHelper()
-{}
-{
-	FileHelper.prototype.readStringFromFileAtPath = function(pathOfFileToReadFrom, callback)
-	{
-		var request = new XMLHttpRequest();
-		request.onload = this.readStringFromFileAtPath_OnLoad.bind(this, callback);
-		request.open("GET", pathOfFileToReadFrom, true);
-		request.send();
-	}
-
-	FileHelper.prototype.readStringFromFileAtPath_OnLoad = function(callback, event)
-	{
-		var request = event.target;
-		var returnValue = request.responseText;
-		callback(returnValue);
-	}
-}
-
-</script>
-</body>
-</html>
+	f.Close
+	%>
+	</body>
+	</html>

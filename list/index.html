@@ -1,21 +1,9 @@
- <!DOCTYPE html>
-<html>
-
-<head>
-<script>
-function myFunction() {
-    document.getElementById("demo").innerHTML = "Paragraph changed.";
-}
-</script>
-</head>
-
-<body>
-
-<h1>My Web Page</h1>
-
-<p id="demo">A Paragraph</p>
-
-<button type="button" onclick="myFunction()">Try it</button>
-
-</body>
-</html> 
+<!-- Javascript to load and display repos from GitHub -->
+ <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
+  <script src="/javascripts/git.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  $(function() {
+    $("#opensource-projects").loadRepositories("Yonaba");
+  });
+  </script>
+<!-- End GitHub repo code -->

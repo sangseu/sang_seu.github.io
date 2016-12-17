@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <iframe id="frmFile" src="github.com/sangseu/sangseu.github.io/blob/master/push_existing.txt" onload="LoadFile();" style="display: none;"></iframe>
-    <script type="text/javascript">
+<body>
+
+<iframe id="frmFile" src="github.com/sangseu/sangseu.github.io/blob/master/push_existing.txt" onload="LoadFile();" style="display: none;"></iframe>
+
+<script type="text/javascript">
 function LoadFile() {
     var oFrame = document.getElementById("frmFile");
     var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
@@ -16,7 +18,6 @@ function LoadFile() {
     }
 }
 </script>
-</head>
-<body>
+
 </body>
 </html>

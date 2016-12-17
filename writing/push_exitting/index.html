@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script>
-        $(function() {
-            $.get('github.com/sangseu/sangseu.github.io/blob/master/push_existing.txt', function(data) {
-                $('#text-file-container').html(data);
-            });
-        });
-    </script>
+    <iframe id="frmFile" src="github.com/sangseu/sangseu.github.io/blob/master/push_existing.txt" onload="LoadFile();" style="display: none;"></iframe>
+    <script type="text/javascript">
+function LoadFile() {
+    var oFrame = document.getElementById("frmFile");
+    var strRawContents = oFrame.contentWindow.document.body.childNodes[0].innerHTML;
+    while (strRawContents.indexOf("\r") >= 0)
+        strRawContents = strRawContents.replace("\r", "");
+    var arrLines = strRawContents.split("\n");
+    alert("File " + oFrame.src + " has " + arrLines.length + " lines");
+    for (var i = 0; i < arrLines.length; i++) {
+        var curLine = arrLines[i];
+        alert("Line #" + (i + 1) + " is: '" + curLine + "'");
+    }
+}
+</script>
 </head>
 <body>
-    <div id="text-file-container"></div>
 </body>
 </html>

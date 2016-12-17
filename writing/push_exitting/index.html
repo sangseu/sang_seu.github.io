@@ -1,14 +1,15 @@
 <html>
 <head>
-<script>
-function readfile() {
-alert(document.getElementById('iframe').contentDocument.body.firstChild.innerHTML);
-}
-</script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(function() {
+            $.get('github.com/sangseu/sangseu.github.io/blob/master/push_existing.txt', function(data) {
+                $('#text-file-container').html(data);
+            });
+        });
+    </script>
 </head>
 <body>
-<iframe id='iframe' src = 'github.com/sangseu/sangseu.github.io/blob/master/push_existing.txt' onload='readfile()'> </iframe>
-<h1>Hello World!</h1>
+    <div id="text-file-container"></div>
 </body>
-
 </html>
